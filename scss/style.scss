@@ -1,0 +1,734 @@
+// Обнуление стилей
+@import 'null';
+
+//Подключаем шрифты
+@import url(https://fonts.googleapis.com/css?family=Nunito+Sans:200,200italic,300,300italic,regular,italic,600,600italic,700,700italic,800,800italic,900,900italic);
+body {font-family: 'Nunito', sans-serif;}
+
+//Переменные
+$color_btn_decor: #3984f3;
+$color_title: #091e40;
+$color_text: #81858e;
+$fz_title: 35px;
+$fz_text: 14px;
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.container {
+    max-width: 1140px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+        }
+
+		&__body {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+		}
+
+		&__logo {
+            position: relative;
+            z-index: 2;
+            flex: 0 0 180px;
+            img {
+                max-width: 100%;
+            }
+		}
+
+		&__burger {
+            display: none;
+		}
+
+		&__menu {
+            flex: 0 1 37.5%;
+		}
+
+		&__list {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+		}
+
+		&__link {
+            margin: 0 20px 0 0;
+            color: #bab8b8;
+            font-size: 14px;
+            line-height: 14.61px;
+            letter-spacing: 0.3px;
+                &_active {
+                    color: #4497f3;
+                }
+                &:hover {
+                    color: #4497f3;
+                }
+		}
+
+		&__btn {
+            color: #3984f3;
+            background-color: #fff;
+                &:hover {
+                    background-color: $color_btn_decor;
+                    color: #fff;
+                }
+		}
+}
+.btn {
+    font-size: $fz_text;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    padding: 10px 30px;
+    border: 3px solid $color_btn_decor;
+}
+
+.content {
+    flex: 1 1 100%;
+}
+
+.title {
+    text-align: center;
+    color: $color_title;
+    font-size: $fz_title;
+    position: relative;
+    margin: 0px 0px 30px 0px;
+    padding: 0 0 30px 0;
+    line-height: 50px;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin: 0 -30px;
+            width: 60px;
+            height: 4px;
+            background-color: $color_btn_decor;
+        }
+}
+.text {
+    text-align: center;
+    color: $color_text;
+    font-size: $fz_text;
+    line-height: 27px;
+    margin: 0px 0px 30px 0px;
+}
+
+.travel {
+    margin: 100px 0px 100px 0px;
+    background-image: url(../img/bc_1.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+
+		&__body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            height: 600px; //! задал высоту
+
+            //position: absolute;
+            //top: 0;
+            //left: 0;
+            //width: 100%;
+            //height: 100%;
+		}
+
+		&__title {
+            color: $color_title;
+            font-size: 35px;
+            font-weight: 800;
+            line-height: 50px;
+            letter-spacing: 0.68px;
+            margin: 0px 0px 30px 0px;
+		}
+
+        &__image {
+            display: none;
+        }
+
+		&__text {
+            margin: 0px 0px 50px 0px;
+            text-align: left;
+		}
+
+		&__button {            
+		}
+
+		&__btn {
+            background-color: $color_btn_decor;
+            color: #fff;
+
+            &:hover {
+                box-shadow: 1px 1px 15px #5bb99c;
+            }
+		}
+}
+
+
+.offer {
+    margin: 0px 0px 100px 0px;
+    
+    .title {
+        text-align: left;
+        &::after{
+            left: 0;
+            margin: 0;
+        }
+    }
+    .text {
+        text-align: left;
+    }
+
+    &__row {
+        display: flex;
+        margin: 0 -30px;
+    }
+
+    &__column {
+        &_1 {
+            padding: 0 30px;
+            min-width: 0;
+            flex: 0 1 55%;
+        }
+
+        &_2 {
+            padding: 0 30px;
+            flex: 0 1 45%;
+        }
+    }
+
+    &__slider {
+    }
+
+    &__content {
+    }
+
+    &__title {        
+    }
+
+    &__text {
+        
+    }
+
+    &__btn {
+        background-color: $color_btn_decor;
+        color: #fff;
+            &:hover {
+                box-shadow: 1px 1px 15px #5bb99c;
+            }
+    }
+}
+
+.slider {
+    position: relative;
+    margin: 0px 0px 0px -200px;
+
+    //Стили слик селекторов
+    .slick-list {
+        overflow: hidden;
+    }
+    .slick-track{
+        display: flex;
+        align-items: flex-end; //adaptiv подстраивается слайдер по высоте
+    }
+    .slick-slide.slick-current{
+        .slider__info {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+    }
+    .slick-arrow{
+        position: absolute;
+        //z-index: 2;
+        top: 110%;
+        width: 20px;
+        height: 14px;
+        font-size: 0;
+    }
+    .slick-arrow.slick-prev{
+        left: 30%;
+        background: url(../img/slider/arrow_l.png) 0 0 / 100% no-repeat;
+    }
+    .slick-arrow.slick-next{
+        left: 38%;
+        background: url(../img/slider/arrow_r.png) 0 0 / 100% no-repeat;
+    }
+
+    //Стили собственных селекторов
+    &__item {
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    &__img {
+        height: 300px;
+        //width: 223px;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__info {
+        display: none;        
+    }
+
+    &__stars {
+        white-space: nowrap;
+        img{
+            width: 12px;
+            height: 12px;
+        }
+    }
+
+    &__days {
+        color: #a0a0a0;
+        font-size: 12px;
+    }
+}
+
+
+.video {
+    margin: 0px 0px 100px 0px;
+
+    &__title {
+    }
+
+    &__text {
+        max-width: 75%;
+        margin: 0 auto 50px auto;
+    }
+
+    &__row {
+        display: flex;
+        margin: 0 -5px;
+    }
+
+    &__column {
+        padding: 5px;
+        &_1 {
+            flex: 0 1 60%;
+        }
+
+        &_2 {
+            flex: 0 1 40%;
+        }
+    }
+
+    .swiper-container { //! важно
+        height: 300px;
+        width: 100%;
+    }
+
+    &__slider-big {
+    }
+
+    &__slider-sm {
+    }
+}
+
+.slider-big {
+
+    &__wrapper {
+    }
+
+    &__item {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.slider-sm {
+    padding: 0 15px 0 0;
+    
+    .swiper-slide-thumb-active {
+        background-color: #efefef;
+    }
+
+    &__wrapper {
+    }
+
+    &__item {
+    }
+
+    &__row {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    &__img {
+        flex: 0 0 120px;
+        height: 80px;
+        margin: 0px 15px 0px 10px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: fill;
+            }
+    }
+
+    &__text {
+    }
+
+    &__name {
+        margin: 0px 0px 10px 0px;
+        color: #091e40;
+    }
+
+    &__t {
+        color: #b7bcc7;
+    }
+
+    &__scroll {
+    }
+    .swiper-scrollbar {
+        background-color: #fff;
+        width: 4px;
+    }
+    .swiper-scrollbar-drag {
+        background-color: #d9d9d9 ;
+    }
+}
+
+.categories {
+    margin: 0px 0px 100px 0px;
+    overflow: hidden; //чтобы скрыть слайдер за пределами этого контейнера, тк он находится до container
+
+    &__title {
+    }
+
+    &__text {
+        max-width: 75%;
+        margin: 0 auto 70px auto;
+    }
+
+    &__slider {
+    }
+
+    &__wrapper {
+    }
+
+    &__item {
+    }
+
+    .swiper-container {
+        position: relative;
+        overflow: visible;
+        height: 400px;
+        width: 100%;
+        padding: 50px 0; //* (height слайда) + падинг конейнера + (обжект фит)
+    }
+
+    .swiper-slide {
+        //height: 250px; // вообще лучше не задавать высоту слайдам//* задай высоту слайда меньше высоты слайдера, тогда слайд не скроется(при object-fit:fill) //слайд итак не скрывается, если просто задать падинг
+        transition: 500ms;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+    }
+    .swiper-slide-active {
+        transition: 500ms;
+        transform: translateY(-50px);
+    }
+    .swiper-button-prev, .swiper-button-next {
+        position: absolute;
+        top: 100%;
+        width: 25px;
+        height: 25px;
+            &::after {
+                display: none;
+            }
+    }
+    .swiper-button-prev {
+        background: url(../img/slider/arrow_l.png) 0 0 / 100% no-repeat;
+        left: 45%;
+    }
+    .swiper-button-next {
+        background: url(../img/slider/arrow_r.png) 0 0 / 100% no-repeat;
+        left: 52%;
+    }
+    
+}
+
+.experiences {
+    margin: 0px 0px 100px 0px;
+    &__title {
+    }
+
+    &__text-slider {
+    }
+
+    &__person-slider {
+    }
+
+}
+
+.text-slider {
+    width: 60%;
+    margin: 0px auto 40px auto;
+    &__wrapper {
+    }
+
+    &__item {
+        text-align: center;
+        line-height: 30px;
+        color: #091e40;
+    }
+}
+
+.person-slider {
+    width: 40%;
+    padding: 0 0 50px 0;
+    &__wrapper {
+    }
+
+    &__item {
+        text-align: center;
+    }
+
+    &__img {
+        margin: 0px auto 20px auto;
+        width: 70px;
+        height: 70px;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__name {
+        margin: 0px 0px 10px 0px;
+        font-weight: 700;
+        color: #2b323a;
+    }
+
+    &__who {
+        color: #2b323a;
+    }
+
+    &__arrow {
+        &_l {
+            background: url(../img/slider/arrow_l.png) 0 0 / 100% no-repeat;
+        }
+        &_r {
+            background: url(../img/slider/arrow_r.png) 0 0 / 100% no-repeat;
+        }
+    }
+
+    &__pagination {
+    }
+    .swiper-pagination-bullet {
+        transition: 500ms;
+        width: 30px;
+        height: 2px;
+        border-radius: initial;
+    }
+    .swiper-pagination-bullet-active {
+        width: 45px;
+    }
+
+    .swiper-button-prev, .swiper-button-next {
+        &::after {
+            display: none;
+        }
+    }
+}
+
+.booking {
+    height: 500px;
+    background: url(../img/mountain.jpg) center/cover no-repeat;
+    position: relative;
+    margin: 0px 0px 50px 0px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(17, 17, 29, 0.5);
+        }
+
+    &__content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__title {
+        text-align: center;
+        margin: 0px 0px 40px 0px;
+        color: #ffffff;
+        text-transform: uppercase;
+        font-size: 30px;
+    }
+
+    &__text {
+        text-align: center;
+        color: #ffffff;
+        font-size: 45px;
+        font-weight: 600;
+        margin: 0px 0px 60px 0px;
+    }
+
+    &__form {
+    }
+}
+
+.form-booking {
+    select, input {
+        height: 35px;
+        width: 190px;
+        padding: 0 20px;
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    input {
+        &::-webkit-inner-spin-button {
+            display: none;
+        }
+    }
+
+    option {
+        color: #000;
+    }
+    
+    &__row {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__destination,&__package,&__date,&__button {
+        text-align: center;
+    }
+    &__destination {
+    }
+
+    &__package {
+    }
+
+    &__date {
+    }
+
+    &__button {
+    }
+
+    &__btn {
+        background-color: $color_btn_decor;
+        border: initial;
+        color: #fff;
+        padding: 0 20px;
+        height: 35px;
+        width: 190px;
+    }
+}
+
+.footer {
+    margin: 0px 0px 50px 0px;
+
+    &__nav {
+    }
+
+    &__plus {
+        display: none;
+    }
+
+    &__menu {
+        margin: 0px 0px 30px 0px;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        li {
+            margin: 0 20px;
+        }
+    }
+
+    &__link {
+        color: #2b323a;
+        font-size: 13px;
+    }
+
+    &__text {
+        text-align: center;
+        margin: 0px 0px 30px 0px;
+        font-size: 11px;
+    }
+
+    &__copyright {
+        margin: 0px 10px 0px 0px;
+        color: #2b323a;
+    }
+
+    &__rhea {
+        color: #c6c6c6;
+    }
+
+    &__contacts {
+    }
+
+    &__logos {
+        display: flex;
+        justify-content: center;
+        
+        li {
+            width: 40px;
+            height: 40px;
+            margin: 0 20px;
+            background-color: $color_btn_decor;
+            border-radius: 50%;
+        }
+    }
+
+    &__contact {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+}
+
+
+@import 'media';
