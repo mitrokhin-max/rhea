@@ -106,31 +106,38 @@ $(document).ready(function() {
         }
     });
 
-var textSlider = new Swiper('.text-slider', {
-    watchSlidesProgress: true, // с помощью этого реализовал связанность
-    effect: 'fade',
-    fadeEffect: {
-        crossFade: true
-    },
-    //autoHeight: true,
-});
-
-var personSlider = new Swiper('.person-slider', {
-    thumbs: {
-        swiper: textSlider,
-    },
-    navigation: {
-            nextEl: '.person-slider__arrow_r',
-            prevEl: '.person-slider__arrow_l',
+    var textSlider = new Swiper('.text-slider', {
+        watchSlidesProgress: true, // с помощью этого реализовал связанность
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
         },
-    pagination: {
-            el: '.person-slider__pagination',
-            type: 'bullets',
-            clickable: true,
-        },
-});
+        //autoHeight: true,
+    });
 
-$('.footer__plus').click(function(event){
-    $(this).toggleClass('active').next().slideToggle(300);
-});
+    var personSlider = new Swiper('.person-slider', {
+        thumbs: {
+            swiper: textSlider,
+        },
+        navigation: {
+                nextEl: '.person-slider__arrow_r',
+                prevEl: '.person-slider__arrow_l',
+            },
+        pagination: {
+                el: '.person-slider__pagination',
+                type: 'bullets',
+                clickable: true,
+            },
+    });
+
+    $('.footer__plus').click(function(event){
+        $(this).toggleClass('active').next().slideToggle(300);
+    });
+
+    $("#list").on("click","a", function (event) {
+        event.preventDefault();
+        var id  = $(this).attr('href'),
+            top = $(id).offset().top;
+        $('body,html').animate({scrollTop: top}, 1000);
+    });
 })
